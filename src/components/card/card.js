@@ -1,10 +1,10 @@
 //import { bool } from "prop-types";
 import React from "react"
 
-
 class Card extends React.Component {
     render() {
         const book = this.props.details;
+        const image = ( book.imageLinks !== undefined  && book.imageLinks.thumbnail !== undefined ) ? book.imageLinks.thumbnail : '';
         return (
             <div>
 
@@ -13,7 +13,7 @@ class Card extends React.Component {
                         <div className="book-cover" style={{
                             width: 128,
                             height: 193,
-                            backgroundImage: "url(" + book.imageLinks.thumbnail + ")"
+                            backgroundImage: "url(" + image + ")"
                         }}>
                         </div>
                         <div className="book-shelf-changer">
@@ -34,5 +34,4 @@ class Card extends React.Component {
         )
     }
 }
-
 export default Card;
